@@ -53,20 +53,38 @@ with open(data_path) as data_file:
 avg = int((running_total/count)*100)/100
 
 #In addition, your final script should both print the analysis to the terminal and export a text file with the results.
-#  Financial Analysis
-print("Financial Analysis")
-#  ----------------------------
-print("----------------------------")
-#  Total Months: 86
-print("Total Months: " + str(len(months)))
-#  Total: $38382578
-print("Total: $" + str(running_total))
-#  Average  Change: $-2315.12
-print("Average Change: $" + str(avg))
-#  Greatest Increase in Profits: Feb-2012 ($1926159)
-print("Greatest Increase in Profits: " + pos_mon + " ($" + str(max_increase) + ")")
-#  Greatest Decrease in Profits: Sep-2013 ($-2196167)
-print("Greatest Decrease in Profits: " + neg_mon + " ($" + str(max_decrease) + ")")
+#make the file
+analysis_path = os.path.join("analysis", "bank_analysis.txt")
+with open(analysis_path, 'w') as ap:
+    apw = csv.writer(ap,delimiter=',')
+    #  Financial Analysis
+    aa = "Financial Analysis"
+    print(aa)
+    apw.writerow([aa])
+    #  ----------------------------
+    bb = "----------------------------"
+    print(bb)
+    apw.writerow([bb])
+    #  Total Months: 86
+    cc = "Total Months: " + str(len(months))
+    print(cc)
+    apw.writerow([cc])
+    #  Total: $38382578
+    dd = "Total: $" + str(running_total)
+    print(dd)
+    apw.writerow([dd])
+    #  Average  Change: $-2315.12
+    ee = "Average Change: $" + str(avg)
+    print(ee)
+    apw.writerow([ee])
+    #  Greatest Increase in Profits: Feb-2012 ($1926159)
+    ff = "Greatest Increase in Profits: " + pos_mon + " ($" + str(max_increase) + ")"
+    print(ff)
+    apw.writerow([ff])
+    #  Greatest Decrease in Profits: Sep-2013 ($-2196167)
+    gg = "Greatest Decrease in Profits: " + neg_mon + " ($" + str(max_decrease) + ")"
+    apw.writerow([gg])
+    print(gg)
 
 ##The total number of months included in the dataset
 #print(len(months))
